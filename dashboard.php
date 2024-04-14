@@ -1,3 +1,20 @@
+<?php
+require "./DB/database.php";
+$db = new database();
+$con = $db->get_con();
+session_start();
+if(isset($_SESSION["username"])){
+    $sql = "SELECT cf_name FROM client_users WHERE c_un='".$_SESSION["username"]."'";
+    $result = $con->query($sql);
+    if($result->num_rows>0){
+        while($row = $result->fetch_assoc()){
+            $_SESSION["Fname"] = $row["cf_name"];
+        }
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,8 +47,9 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <a href="" class="btn btn-primary ">Login</a>
-                    <a href="" class="btn btn-primary">Signup</a>
+                    <h2 class="username">
+                        <?php echo $_SESSION["Fname"]?>
+                    </h2>
                 </div>
             </div>
         </div>

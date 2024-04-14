@@ -1,17 +1,19 @@
 <?php
 
 session_start();
+
 require "./DB/client_users.php";
 
 if (isset($_POST["btn-signin"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
-
+    
     $user = new Client_users();
     $result = $user->login($username, $password);
     if ($result) {
+        $_SESSION["username"]=$username;
         echo "<script>alert('Login Successful');
-                location.replace('./dashboard.php?username=".$username."');
+                location.replace('./dashboard.php');
         </script>";
     } else {
         echo "<script>alert('Login Failed');
