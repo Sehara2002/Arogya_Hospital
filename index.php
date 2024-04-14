@@ -11,7 +11,7 @@ if (isset($_POST["btn-signin"])) {
     $result = $user->login($username, $password);
     if ($result) {
         echo "<script>alert('Login Successful');
-                location.replace('./dashboard.php');
+                location.replace('./dashboard.php?username=".$username."');
         </script>";
     } else {
         echo "<script>alert('Login Failed');
