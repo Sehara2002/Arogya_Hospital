@@ -66,8 +66,13 @@ if(isset($_SESSION["username"])){
                 <div class="container banner-section">
                     <div class="main-title">
                         <p class="topic">Welcome to Arogya Hospital</p>
-                        <p class="theme-text">Your vitness is our wealth</p>
+                        <p class="theme-text">Your health is our wealth</p>
+                        <div class="button-section text-center">
+                        <a href="./appointment.php" class="btn btn-primary text-center btn1">Make Appointment</a>
+                        <a href="./contact.php" class="btn btn-primary text-center btn2">Contact Us</a>
                     </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
