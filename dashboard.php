@@ -39,11 +39,12 @@ if(isset($_SESSION["username"])){
                 </div>
                 <div class="col-sm-6">
                     <div class="container navbar">
+                        <script src="./JS/Animations.js"></script>
                         <ul class="nav-bar">
-                            <li class="nav-item"><a href="" class="nav-link">My Portal</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Appointments</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">History</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Help</a></li>
+                            <li class="nav-item"><a class="nav-link" id="link1" onclick="navClassAdder(1)">My Portal</a></li>
+                            <li class="nav-item"><a class="nav-link" id="link2" onclick="navClassAdder(2)">Appointments</a></li>
+                            <li class="nav-item"><a class="nav-link" id="link3" onclick="navClassAdder(3)">History</a></li>
+                            <li class="nav-item"><a class="nav-link" id="link4" onclick="navClassAdder(4)">Help</a></li>
                         </ul>
                     </div>
                 </div>
@@ -72,7 +73,6 @@ if(isset($_SESSION["username"])){
                         <a href="./contact.php" class="btn btn-primary text-center btn2">Contact Us</a>
                     </div>
                     </div>
-                    
                 </div>
             </div>
         </div>

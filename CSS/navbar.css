@@ -13,11 +13,13 @@
     transition: 0.25s;
 }
 .nav-link:hover{
-    background-color: rgb(31, 31, 95);
-    color:white;
+    letter-spacing: 5px;
 }
 .nav-container{
     margin-top: 20px;
+}
+.active{
+    color:black;
 }
 .logo{
     position:absolute;
