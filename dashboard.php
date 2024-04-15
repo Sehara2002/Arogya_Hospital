@@ -23,7 +23,8 @@ if(isset($_SESSION["username"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="./CSS/navbar.css">
+    <link rel="stylesheet" href="./CSS/Navbar.css">
+    <link rel="stylesheet" href="./CSS/dashboard.css">
     <title>Arogya Hospital</title>
 </head>
 
@@ -46,10 +47,12 @@ if(isset($_SESSION["username"])){
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <h2 class="username">
+                <div class="col-sm-3 user text-center">
+                    <div class="user">
+                    <p class="username">
                         <?php echo $_SESSION["Fname"]?>
-                    </h2>
+                    </p>
+                    </div>
                 </div>
             </div>
         </div>
