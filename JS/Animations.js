@@ -31,3 +31,7 @@ const navClassAdder = (number) => {
       break;
   }
 };
+
+const editVisibility = () => {
+document.getElementById().classList.add("display-item");
+}

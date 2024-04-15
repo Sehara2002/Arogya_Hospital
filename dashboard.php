@@ -77,6 +77,20 @@ if(isset($_SESSION["username"])){
             </div>
         </div>
     </main>
+
+    <section class="appointments" onscroll="editVisibility()" id="appointment-section">
+        <div class="container">
+            <h1 class="section-head text-center">Appointment Details</h1>
+            <div class="row">
+                <div class="col-sm-6">
+
+                </div>
+                <div class="col-sm-6">
+
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>
