@@ -57,6 +57,21 @@ if(isset($_SESSION["username"])){
             </div>
         </div>
     </nav>
+
+
+
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container banner-section">
+                    <div class="main-title">
+                        <p class="topic">Welcome to Arogya Hospital</p>
+                        <p class="theme-text">Your vitness is our wealth</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>

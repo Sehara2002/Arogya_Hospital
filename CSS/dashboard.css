@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kaushan+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.banner-section{
+    height:88.5vh;
+    width:100%;
+    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url("../images/loginimage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+.main-title{
+    margin-top: 100px;
+    height:600px;
+    width:1300px;
+    padding:50px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid white;
+}
+.main-title .topic{
+    color:white;
+    text-align:center;
+    font-size:5rem;
+    font-family:poppins;
+}
+.theme-text{
+    color:white;
+    text-align:center;
+    font-size:3rem;
+    font-family:poppins;
+}
