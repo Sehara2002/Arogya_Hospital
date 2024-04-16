@@ -79,14 +79,29 @@ if(isset($_SESSION["username"])){
     </main>
 
     <section class="appointments" onscroll="editVisibility()" id="appointment-section">
-        <div class="container">
+        <div class="container app-sec">
             <h1 class="section-head text-center">Appointment Details</h1>
             <div class="row">
                 <div class="col-sm-6">
-
+                    <div class="card upcoming">
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">Title</h4>
+                            <h6 class="card-subtitle text-muted">Subtitle</h6>
+                          </div>
+                          <img src="holder.js/100x180/" alt="">
+                          <div class="card-body">
+                            <p class="card-text">Text</p>
+                            <a href="#" class="card-link">Link 1</a>
+                            <a href="#" class="card-link">Link 2</a>
+                          </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-sm-6">
+                    <div class="card history">
 
+                    </div>
                 </div>
             </div>
         </div>

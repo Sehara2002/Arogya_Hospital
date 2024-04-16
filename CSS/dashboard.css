@@ -60,6 +60,63 @@
     color:black;
     letter-spacing: 5px;
 }
+.appointments{
+    margin-top:100px;
+}
+.section-head{
+    position: inherit;
+    font-family: poppins;
+    margin-bottom: 30px;
+    font-weight: 600;
+    transition: 0.25s;
+    text-shadow: 2px 3px 0px 2px solid black;
+}
+.section-head:hover{
+    position: inherit;
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+
+.section-head::after{
+    content:'';
+    height:7px;
+    border-radius: 20px;
+    width:250px;
+    background-color: black;
+    position: absolute;
+    top:1070px;
+    left:730px;
+    transition: 0.5s ease-in-out;
+}
+.section-head::before{
+    content:'';
+    height:7px;
+    border-radius: 20px;
+    width:250px;
+    background-color: black;
+    position: absolute;
+    top:1070px;
+    left:920px;
+    transition: 0.5s ease-in-out;
+}
+
+.section-head:hover:after{
+    left:500px;
+    top:1047px;
+    width:220px;
+}
+.section-head:hover:before{
+    left:1170px;
+    top:1047px;
+    width:220px;
+}
+
+.card{
+    height:40vh;
+    width:600px;
+    margin:30px;
+    margin-bottom: 50px;
+}
 .display-item{
     display:block;
 }
