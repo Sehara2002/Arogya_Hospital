@@ -83,24 +83,35 @@ if(isset($_SESSION["username"])){
             <h1 class="section-head text-center">Appointment Details</h1>
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="card upcoming">
-                        <div class="card">
+                    <!--<div class="card upcoming">-->
+                        <div class="card my-card">
                           <div class="card-body">
-                            <h4 class="card-title">Title</h4>
-                            <h6 class="card-subtitle text-muted">Subtitle</h6>
+                            <h3 class="card-title">Upcoming Appointments</h3>
                           </div>
                           <img src="holder.js/100x180/" alt="">
                           <div class="card-body">
                             <p class="card-text">Text</p>
-                            <a href="#" class="card-link">Link 1</a>
-                            <a href="#" class="card-link">Link 2</a>
+                            <p class="card-text">Text</p>
+                            <p class="card-text">Text</p>
+                            <p class="card-text">Text</p>
+                            <a href="#" class="card-link">View More</a>
                           </div>
                         </div>
-                    </div>
+                    <!--</div>-->
                 </div>
                 <div class="col-sm-6">
-                    <div class="card history">
-
+                    <div class="card my-card">
+                      <div class="card-body">
+                        <h3 class="card-title">Medical History</h3>
+                      </div>
+                      <img src="holder.js/100x180/" alt="">
+                      <div class="card-body">
+                        <p class="card-text">Text</p>
+                        <p class="card-text">Text</p>
+                        <p class="card-text">Text</p>
+                        <p class="card-text">Text</p>
+                        <a href="#" class="card-link">View More</a>
+                      </div>
                     </div>
                 </div>
             </div>

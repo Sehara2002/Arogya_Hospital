@@ -111,11 +111,8 @@
     width:220px;
 }
 
-.card{
-    height:40vh;
-    width:600px;
-    margin:30px;
-    margin-bottom: 50px;
+.my-card{
+    padding:20px;
 }
 .display-item{
     display:block;
