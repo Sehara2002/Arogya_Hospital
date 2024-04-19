@@ -13,9 +13,6 @@ if (isset($_SESSION["username"])) {
         }
     }
 }
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,16 +72,28 @@ if (isset($_SESSION["username"])) {
                     </div>
                     <div class="input-group">
                         <label for="c_name">Patient Name: </label>
-                        <input type="text" name="c_name" class="input-field">
+                        <input type="text" name="c_name" class="input-field" value=<?php echo $_SESSION["Fname"] ?>>
                     </div>
                     <div class="input-group">
                         <label for="">Doctor Name: </label>
                         <br>
-                        <select name="" id="" class="input-field"></select>
+                        <select name="doctor_name" id="" class="input-field">
+                            <?php
+                            $sql = "SELECT df_name FROM doctor";
+                            $result = $con->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                            ?>
+                                    <option value="<?php echo $row['df_name'] ?>"><?php echo $row['df_name'] ?></option>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </select>
                     </div>
                     <div class="input-group">
                         <label for="d_no">Doctor Number: </label>
-                        <input type="text" name="d_no" class="input-field">
+                        <input type="text" name="d_no" class="input-field" value="<?php ?>" />
                     </div>
                     <div class="input-group">
                         <label for=""></label>
@@ -96,7 +105,7 @@ if (isset($_SESSION["username"])) {
     </main>
 
 
-    
+
 
 
 </body>

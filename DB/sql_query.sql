@@ -17,8 +17,6 @@ CREATE TABLE client_users(
 
 DELETE FROM client_users WHERE c_no = 4;
 
-
-
 SELECT * FROM client_users;
 SELECT * FROM appointments;
 SELECT * FROM doctor;
@@ -31,6 +29,8 @@ CREATE TABLE doctor(
     dl_name VARCHAR(100),
     d_specialization VARCHAR(60)
 );
+
+INSERT INTO doctor(df_name,dl_name,d_specialization)VALUES("Ravindra","Perera","VP"),("Kasun","Piyathilaka","VP");
 
 CREATE TABLE appointments(
 	a_no INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -47,4 +47,6 @@ CREATE TABLE appointments(
     FOREIGN KEY(c_no) REFERENCES client_users(c_no),
     FOREIGN KEY(d_no) REFERENCES doctor(d_no)
 );
+
+
 
