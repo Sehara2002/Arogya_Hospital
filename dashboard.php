@@ -41,8 +41,8 @@ if(isset($_SESSION["username"])){
                     <div class="container navbar">
                         <script src="./JS/Animations.js"></script>
                         <ul class="nav-bar">
-                            <li class="nav-item"><a class="nav-link" id="link1" onclick="navClassAdder(1)">My Portal</a></li>
-                            <li class="nav-item"><a class="nav-link" id="link2" onclick="navClassAdder(2)">Appointments</a></li>
+                            <li class="nav-item"><a class="nav-link active" id="link1" onclick="navClassAdder(1)">My Portal</a></li>
+                            <li class="nav-item"><a  href="appointment.php" class="nav-link" id="link2" onclick="navClassAdder(2)">Appointments</a></li>
                             <li class="nav-item"><a class="nav-link" id="link3" onclick="navClassAdder(3)">History</a></li>
                             <li class="nav-item"><a class="nav-link" id="link4" onclick="navClassAdder(4)">Help</a></li>
                         </ul>
