@@ -47,6 +47,96 @@ CREATE TABLE appointments(
     FOREIGN KEY(c_no) REFERENCES client_users(c_no),
     FOREIGN KEY(d_no) REFERENCES doctor(d_no)
 );
+CREATE TABLE patient(
+	p_id INT PRIMARY KEY AUTO_INCREMENT,
+    p_fname VARCHAR(100),
+    p_lname VARCHAR(100),
+    p_nic VARCHAR(15),
+    p_address VARCHAR(150),
+    p_gender ENUM('Male','Female','Other'),
+    p_email VARCHAR(60)
+);
+create TABLE ward(
+	w_id INT PRIMARY KEY AUTO_INCREMENT,
+    w_no VARCHAR(20),
+    w_capacity INT
+);
+
+CREATE TABLE doctor_ward_assignment(
+	assignment_id INT auto_increment PRIMARY KEY,
+    d_no INT,
+    w_id INT,
+    
+    foreign key(d_no) references doctor(d_no),
+    foreign key(w_id) references ward(w_id)
+);
+
+CREATE TABLE patient_ward_admission(
+	admission_id INT PRIMARY KEY AUTO_INCREMENT, 
+    admitted_patient_id INT,
+    admitted_ward_id INT,
+    admitted_date DATE,
+    admitted_time TIME,
+    admission_state ENUM('Admitted','Discharged','Transfered'),
+    
+    FOREIGN KEY (admitted_ward_id) REFERENCES ward(w_id),
+    FOREIGN KEY (admitted_patient_id) REFERENCES patient(p_id)
+);
+
+
+CREATE TABLE doctor_appointments(
+	appointment_id INT PRIMARY KEY AUTO_INCREMENT,
+    d_no INT,
+    a_no INT,
+    
+    FOREIGN KEY(d_no) REFERENCES doctor(d_no),
+    FOREIGN KEY(a_no) REFERENCES appointment(a_no)
+);
+
+USE arogya_hospital;
+
+
+DELIMITER $$
+CREATE PROCEDURE addDoctor(dfname VARCHAR(50),dlname VARCHAR(50),dspec VARCHAR(100))
+BEGIN
+	INSERT INTO doctor(df_name,dl_name,d_specialization)VALUES(dfname,dlname,dspec);
+END$$
+
+DELIMITER ;
+
+USE arogya_hospital;
+
+
+DELIMITER $$
+CREATE PROCEDURE addClient(cf_name VARCHAR(60),cl_name VARCHAR(60),c_age INT,c_gender VARCHAR(10),c_email VARCHAR(100),c_contact VARCHAR(10),ce_contact VARCHAR(10),c_un VARCHAR(100),c_pw VARCHAR(20))
+BEGIN
+	INSERT INTO client_users(cf_name,cl_name,c_age,c_gender,c_email,c_contact,ce_contact,c_un,c_pw) VALUES(cf_name,cl_name,c_age,c_gender,c_email,c_contact,ce_contact,c_un,c_pw);
+END$$
+DELIMITER ;
+
+
+
+SELECT * FROM client_users;
+
+ALTER TABLE doctor ADD patient_capacity INT;
+ALTER TABLE doctor ADD fee decimal(18,2);
+
+
+SELECT * FROM doctor;
+
+UPDATE doctor SET patient_capacity = 20 WHERE d_no IN (1,2);
+UPDATE doctor SET fee = 2000.00 WHERE d_no IN (1,2);
+
+
+
+
+
+
+ 
+
+
+
+
 
 
 

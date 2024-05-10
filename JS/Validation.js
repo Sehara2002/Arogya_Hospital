@@ -50,3 +50,4 @@ const email_validation = (email) =>{
     const result = regex.test(email);
     return result;
 }
+

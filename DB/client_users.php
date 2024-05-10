@@ -19,7 +19,7 @@ class Client_users
     function create_user($cf_name,$cl_name,$c_age,$c_gender,$c_email,$c_contact,$ce_contact,$c_un,$c_pw){
         $db = new database();
         $con=$db->get_con();
-        $sql = "INSERT INTO client_users(cf_name,cl_name,c_age,c_gender,c_email,c_contact,ce_contact,c_un,c_pw) VALUES('".$cf_name."','".$cl_name."',".$c_age.",'".$c_gender."','".$c_email."','".$c_contact."','".$ce_contact."','".$c_un."','".$c_pw."');";
+        $sql = "CALL addClient('".$cf_name."','".$cl_name."',".$c_age.",'".$c_gender."','".$c_email."','".$c_contact."','".$ce_contact."','".$c_un."','".$c_pw."');";
         $result = $con->query($sql);
         if($result === true){
             return true;
@@ -49,6 +49,13 @@ class Client_users
             return false;
         }
 
+    }
+
+    
+
+    function logoutuser(){
+        session_destroy();
+        echo "<script></script>";
     }
 }
 

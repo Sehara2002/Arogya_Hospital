@@ -26,6 +26,44 @@ class appointments
             return false;
         }
     }
+
+    function getAppointments( $c_no, $cf_name, $d_no, $df_name, $a_date, $a_time, $a_description, $a_fee, $a_state)
+    {
+        $db = new database();
+        $con = $db->get_con();
+        $sql = "";
+        $result = $con->query($sql);
+        if ($result === true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function updateAppointments( $c_no, $cf_name, $d_no, $df_name, $a_date, $a_time, $a_description, $a_fee, $a_state)
+    {
+        $db = new database();
+        $con = $db->get_con();
+        $sql = "";
+        $result = $con->query($sql);
+        if ($result === true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function cancelAppointments( $c_no, $d_no,  $a_date, $a_time, $a_description, $a_fee, $a_state)
+    {
+        $db = new database();
+        $con = $db->get_con();
+        $sql = "";
+        $result = $con->query($sql);
+        if ($result === true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 
