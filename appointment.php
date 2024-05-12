@@ -8,7 +8,9 @@ if (isset($_SESSION["username"])) {
     $result = $con->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
+            $_SESSION["Fname"] = $row["cf_name"];
             $_SESSION["Lname"] = $row["cl_name"];
+            $_SESSION["cno"] = $row["c_no"];
         }
     }
 }
@@ -19,6 +21,7 @@ if (isset($_POST["place-appointment"])) {
     $doctor = $_POST["doctor_name"];
     $doctor_array = explode("-", $doctor);
     $docNo = (int)$doctor_array[1];
+    $docName = (string)$doctor_array[0];
     $sql = "SELECT DISTINCT COUNT(a_no) FROM appointments WHERE d_no=$docNo";
 
     $result = $con->query($sql);
@@ -36,9 +39,21 @@ if (isset($_POST["place-appointment"])) {
             $capacity = (int)$row['patient_capacity'];
         }
     }
-
+    $message='';
     if ($capacity > $appointments) {
-        $sql = '';
+        $c_no = $_SESSION["cno"];
+        $cfname = $_SESSION["Fname"];
+        $d_no = $docNo;
+        $d_name = $docName;
+        $a_date = $_POST["appointment-Date"];
+        $a_desc = $_POST["appointment-desc"];
+        $appointment = new appointments();
+        $id = $appointment->placeAppointments($c_no,$cfname,$d_no,$d_name,$a_date,'16:00',$a_desc,2000.00,'Pending');
+        if($id!=-1){
+            $message = "Your Appointment Successfully Added. Appointment ID : $id";
+        }else{
+            $message = "Appointment Cannot Place";
+        }
     }else{
         $message = "Cannot Place your Appointment.Appointment Count of the Doctor is Over.";
     }
@@ -139,6 +154,12 @@ Please note that all the doctors are available after 4.00PM.
                         <button class="btn btn-primary submit-button" name="place-appointment"> Place Appointment </button>
     
                     </div>
+                    <div class="input-group">
+                    <div class="alert alert-box alert-info" >
+                        <h1><?php if(isset($message)){echo $message;}?></h1>
+                    </div>
+                    </div>
+                   
 
 
             </form>

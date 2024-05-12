@@ -18,12 +18,14 @@ class appointments
     {
         $db = new database();
         $con = $db->get_con();
-        $sql = "INSERT INTO appointments(c_no,cf_name,d_no,df_name,a_date,a_time,a_description,a_fee,a_state) VALUES(" . $c_no . ",'" . $cf_name . "'," . $d_no . ",'" . $df_name . "','" . $a_date. "','" . $a_time . "','" . $a_description. "'," . $a_fee . ",'" . $a_state . "');";
+        $sql = "CALL placeAppointment(" . $c_no . ",'" . $cf_name . "'," . $d_no . ",'" . $df_name . "','" . $a_date. "','" . $a_time . "','" . $a_description. "'," . $a_fee . ",'" . $a_state . "');";
         $result = $con->query($sql);
-        if ($result === true) {
-            return true;
+
+        if ($result->num_rows>0) {
+           $row = $result->fetch_assoc();
+           return $row['a_no'];
         } else {
-            return false;
+            return -1;
         }
     }
 

@@ -132,11 +132,24 @@ UPDATE doctor SET fee = 2000.00 WHERE d_no IN (1,2);
 
 
 
+SELECT * FROM appointments;
  
 
 
+CALL placeAppointment(7,'Thanuka Perera',1,'Ravindra','2024-05-31','16:00','Nothing Special',2000.00,'Pending');
 
 
 
 
 
+
+
+DELIMITER $$
+CREATE PROCEDURE placeAppointment(c_no INT,cf_name VARCHAR(100),d_no INT,df_name VARCHAR(100),a_date DATE,a_time TIME,a_desc VARCHAR(400),a_fee DOUBLE(18,2),a_state VARCHAR(10))
+BEGIN
+	INSERT INTO appointments(c_no,cf_name,d_no,df_name,a_date,a_time,a_description,a_fee,a_state)VALUES(c_no,cf_name,d_no,df_name,a_date,a_time,a_desc,a_fee,a_state);
+    SELECT a_no FROM appointments ORDER BY a_no DESC LIMIT 0,1;
+END $$
+DELIMITER ;
+
+DROP PROCEDURE placeAppointment;

@@ -127,7 +127,7 @@ if (isset($_SESSION["username"])) {
                     <!--<div class="card upcoming">-->
                     <div class="card my-card">
                         <div class="card-body">
-                            <h3 class="card-title">Upcoming Appointments</h3>
+                            <h2 class="card-title">Upcoming Appointments</h2>
                         </div>
                         <img src="holder.js/100x180/" alt="">
                         <div class="card-body">
@@ -137,7 +137,7 @@ if (isset($_SESSION["username"])) {
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                             ?>
-                                    <p><?php $row["a_date"] . " - Dr." . $row["df_name"] ?></p>
+                                    <h5><?php echo $row["a_date"] . " - Dr." . $row["df_name"] ?></h5>
                             <?php
                                 }
                             } else {
