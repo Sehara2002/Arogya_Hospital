@@ -1,0 +1,30 @@
+
+.input-group{
+    margin: 5px 5px 5px 5px;
+    padding:20px;
+    width:500px;
+}
+
+.input-field{
+    width:500px;
+    height:40px;
+    border:none;
+    border-bottom: 1px solid black;
+    font-size: 25px;
+    padding-left: 10px;
+}
+.appointment-form{
+    margin:50px;
+    padding-top:10px;
+    width:510px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.side-bar{
+    height:auto;
+}
+.submit-button{
+    width:200px;
+}
+.left{
+    margin-right:40px;
+}

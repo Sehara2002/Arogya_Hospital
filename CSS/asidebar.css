@@ -1,0 +1,26 @@
+.side-bar{
+    /* width:400px; */
+    height: 91vh;
+    background: rgb(97, 158, 238);
+
+    margin-left:0;
+}
+.link-container{
+    margin-top: 40px;
+}
+.links{
+    margin-top: 50px;
+    margin-bottom:50px;
+}
+.link{
+    font-size: 25px;
+    text-decoration: none;
+    color:white;
+    font-weight: 600;
+}
+.link:hover{
+    color:aquamarine;
+}
+.active-link{
+    color:aquamarine;
+}

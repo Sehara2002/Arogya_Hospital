@@ -111,9 +111,27 @@ DELIMITER $$
 CREATE PROCEDURE addClient(cf_name VARCHAR(60),cl_name VARCHAR(60),c_age INT,c_gender VARCHAR(10),c_email VARCHAR(100),c_contact VARCHAR(10),ce_contact VARCHAR(10),c_un VARCHAR(100),c_pw VARCHAR(20))
 BEGIN
 	INSERT INTO client_users(cf_name,cl_name,c_age,c_gender,c_email,c_contact,ce_contact,c_un,c_pw) VALUES(cf_name,cl_name,c_age,c_gender,c_email,c_contact,ce_contact,c_un,c_pw);
+	INSERT INTO login_user(SELECT c_no FROM client_users ORDER BY c_no DESC,c_un,c_pw,"client");
 END$$
 DELIMITER ;
 
+DROP PROCEDURE addClient;
+
+
+DELIMITER $$
+CREATE PROCEDURE editClient(c_no INT, cf_name VARCHAR(60),cl_name VARCHAR(60),c_age INT,c_gender VARCHAR(10),c_email VARCHAR(100),c_contact VARCHAR(10),ce_contact VARCHAR(10),c_un VARCHAR(100),c_pw VARCHAR(20))
+BEGIN
+	UPDATE client_users SET cf_name = cf_name, cl_name=cl_name,c_age=c_age,c_gender=c_gender,c_email=c_email,c_contact = c_contact,ce_contact=ce_contact,c_un=c_un WHERE c_no=c_no;
+END$$
+
+DELIMITER ;
+
+DELETE FROM client_users;
+
+DELETE FROM appointments;
+
+
+USE arogya_hospital;
 
 
 SELECT * FROM client_users;
@@ -138,6 +156,16 @@ SELECT * FROM appointments;
 
 CALL placeAppointment(7,'Thanuka Perera',1,'Ravindra','2024-05-31','16:00','Nothing Special',2000.00,'Pending');
 
+use arogya_hospital;
+
+SELECT * FROM client_users c,appointments a WHERE c.c_no = a.c_no;
+
+
+SELECT * FROM (client_users c INNER JOIN appointments a ON c.c_no = a.c_no) INNER JOIN doctor d ON d.d_no = a.d_no;
+
+
+
+
 
 
 
@@ -153,3 +181,13 @@ END $$
 DELIMITER ;
 
 DROP PROCEDURE placeAppointment;
+
+
+CREATE TABLE user_login(
+	user_id INT,
+    username VARCHAR(100),
+    password varchar(16),
+    role ENUM('client','admin'),
+    CONSTRAINT client_FK FOREIGN KEY (user_id) REFERENCES client_users(c_no)
+);
+

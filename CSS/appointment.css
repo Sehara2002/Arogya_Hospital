@@ -12,6 +12,9 @@
     padding-right: 100px;
     margin-top: 50px;
 }
+.history{
+    margin-top: 50px;
+}
 .input-group{
     display: block;
     width:600px;
@@ -39,4 +42,22 @@
 
 .alert-box{
     width:600px;
+}
+.c-headers,.appointment-data{
+    font-size:20px;
+}
+.appointment-row{
+    margin-bottom: 40px;
+}
+.appointment-data a{
+    text-decoration: none;
+    font-size:30px;
+}
+.delete-icon{
+    color:red;
+}
+
+.appointment-data a i:hover{
+    transform:scale(1.5);
+    transition: 0.5s;
 }

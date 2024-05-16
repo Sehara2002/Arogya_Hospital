@@ -32,6 +32,14 @@ const navClassAdder = (number) => {
   }
 };
 
-const editVisibility = () => {
-document.getElementById().classList.add("display-item");
+
+const makeVisible = () => {
+        document.getElementById("hidden-menu").classList.add("show");
+        document.getElementById("hidden-menu").classList.remove("hide");
 }
+const hideVisible =() =>{
+  document.getElementById("hidden-menu").classList.add("hide");
+  document.getElementById("hidden-menu").classList.remove("show");
+}
+        
+    

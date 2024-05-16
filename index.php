@@ -7,17 +7,34 @@ require "./DB/client_users.php";
 if (isset($_POST["btn-signin"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
-    
-    $user = new Client_users();
-    $result = $user->login($username, $password);
-    if ($result) {
-        $_SESSION["username"]=$username;
-        echo "<script>alert('Login Successful');
+
+    $db = new database();
+    $con = $db->get_con();
+    $sql = "SELECT username,password,role,user_id FROM user_login WHERE username = '" . $username . "';";
+    $result = $con->query($sql);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $db_un = $row["username"];
+            $db_pw = $row["password"];
+            $db_role = $row["role"];
+            if (($db_un == $username) && ($db_pw == $password) && ($db_role == 'admin')) {
+                $_SESSION["username"] = $username;
+                $_SESSION["a_no"] = $row['user_id'];
+                echo "<script>alert('Login Successful');
+                location.replace('./Admin/dashboard.php');
+                </script>";
+            } else if(($db_un == $username) && ($db_pw == $password) && ($db_role == 'client')) {
+                $_SESSION["username"] = $username;
+                $_SESSION["c_no"] = $row['user_id'];
+                echo "<script>alert('Login Successful');
                 location.replace('./dashboard.php');
-        </script>";
-    } else {
-        echo "<script>alert('Login Failed');
-        </script>";
+                </script>";
+            }else{
+                echo "<script>console.log('Login failed');</script>";
+            }
+        }
+    }else{
+        echo "<script>console.log('Record not Found');</script>";
     }
 }
 ?>
